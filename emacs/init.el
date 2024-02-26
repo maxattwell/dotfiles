@@ -3,29 +3,55 @@
 (scroll-bar-mode -1)
 
 ;; Relative line numbers
-(global-display-line-numbers-mode 1)
-(display-line-numbers-mode)
-(setq display-line-numbers 'relative)
+;;(global-display-line-numbers-mode 1)
+;;(display-line-numbers-mode)
+(setq display-line-numbers-type 'relative) 
+(global-display-line-numbers-mode)
 
 ;; package.el
 (require 'package)
 (add-to-list 'package-archives
-	    '("melpa" . "https://melpa.org/package/"))
+	    '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 (package-refresh-contents)
 
-;; Download Evil
-(unless (package-installed-p 'evil)
-  (package-install 'evil))
+;; Install and configure use-package
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package)
 
-;; Enable Evil
-(require 'evil)
-(evil-mode 1)
+;; Load modules
+(load "~/.config/emacs/evil.el")
 
-;; Undo-tree for C-r in Evil mode
-(require 'undo-tree)
+(use-package seq
+  :ensure t)
 
+(use-package magit
+  :ensure t
+  :config
+ (define-key magit-mode-map (kbd "M-w") nil))
 
+(use-package general
+  :ensure t
+  :config
+
+  ;; Set <leader>
+  (general-create-definer my-leader-def
+    :prefix "SPC")
+
+  ;; <leader> shortcuts
+  (my-leader-def
+   :keymaps 'normal
+   ":" 'execute-extended-command)
+  (my-leader-def
+   :keymaps 'normal
+   "g" 'magit-status-here)
+  (my-leader-def
+   :keymaps 'normal
+   "w" 'evil-window-map)
+  (my-leader-def
+   :keymaps 'normal
+   "." 'find-file))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
