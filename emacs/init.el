@@ -6,7 +6,23 @@
 (setq display-line-numbers-type 'relative) 
 (global-display-line-numbers-mode)
 
+;; Move custom vars set by emacs
+(setq custom-file (locate-user-emacs-file "custom-vars.el"))
+(load custom-file 'noerror 'nomessage)
+
+;; Move save files
 (setq backup-directory-alist `(("." . "~/.saves")))
+
+;; Minibuffer history
+(setq history-length 25)
+(savehist-mode 1)
+
+;; Don't pop up UI dialogs when prompting
+(setq use-dialog-box nil)
+
+;; Revert buffers when changes outside emacs
+(global-auto-revert-mode 1)
+(setq global-auto-revert-non-file-buffers t)
 
 ;; Package management
 (require 'package)
@@ -25,15 +41,7 @@
 (load "~/.config/emacs/general.el")
 (load "~/.config/emacs/magit.el")
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages '(markdown-mode dockerfile-mode evil)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))

@@ -14,9 +14,21 @@
    ":" 'execute-extended-command)
   (my-leader-def
    :keymaps 'normal
+
+   ;; git
    "g" 'magit-status-here
-   "w" 'evil-window-map
+
+   ;; buffers
    "b [" 'previous-buffer
    "b ]" 'next-buffer
    "b d" 'kill-current-buffer
+
+   ;; windows
+   "w" 'evil-window-map
+   "w d" '(lambda ()
+             (interactive)
+             (delete-window)
+             (balance-windows))
+
+   ;; find file
    "." 'find-file))
