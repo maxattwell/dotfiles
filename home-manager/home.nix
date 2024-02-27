@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
-{
+let
+  unstable = import <nixpkgs-unstable> {};
+in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "max";
@@ -23,30 +25,31 @@
     };
   };
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    # The home.packages option allows you to install Nix packages into your
+    # environment.
+    home.packages = [
+      # # Adds the 'hello' command to your environment. It prints a friendly
+      # # "Hello, world!" when run.
+      # pkgs.hello
 
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
-    pkgs.fastfetch
-    pkgs.google-chrome
-    pkgs.neovim
-    pkgs.zsh
-  ];
+      # # It is sometimes useful to fine-tune packages, for example, by applying
+      # # overrides. You can do that directly here, just don't forget the
+      # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
+      # # fonts?
+      # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+
+      # # You can also create simple shell scripts directly inside your
+      # # configuration. For example, this adds a command 'my-hello' to your
+      # # environment:
+      # (pkgs.writeShellScriptBin "my-hello" ''
+      #   echo "Hello, ${config.home.username}!"
+      # '')
+      pkgs.fastfetch
+      pkgs.google-chrome
+      pkgs.neovim
+      pkgs.zsh
+    ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -127,53 +130,53 @@
       "$logout" = "loginctl terminate-user $USER";
 
       bind = [
-        "$mainMod, RETURN, exec, $terminal"
-        "$mainMod SHIFT, RETURN, exec, $browser"
-        "$mainMod, Q, killactive"
-        "$mainMod, ESCAPE, exec, $suspend"
-        "$mainMod SHIFT, ESCAPE, exec, $logout"
+	"$mainMod, RETURN, exec, $terminal"
+	"$mainMod SHIFT, RETURN, exec, $browser"
+	"$mainMod, Q, killactive"
+	"$mainMod, ESCAPE, exec, $suspend"
+	"$mainMod SHIFT, ESCAPE, exec, $logout"
 
-        "$mainMod, H, movefocus, l"
-        "$mainMod, L, movefocus, r"
-        "$mainMod, K, movefocus, u"
-        "$mainMod, J, movefocus, d"
+	"$mainMod, H, movefocus, l"
+	"$mainMod, L, movefocus, r"
+	"$mainMod, K, movefocus, u"
+	"$mainMod, J, movefocus, d"
 
-        "$mainModSHIFT, H, movewindow, l"
-        "$mainModSHIFT, L, movewindow, r"
-        "$mainModSHIFT, K, movewindow, u"
-        "$mainModSHIFT, J, movewindow, d"
+	"$mainModSHIFT, H, movewindow, l"
+	"$mainModSHIFT, L, movewindow, r"
+	"$mainModSHIFT, K, movewindow, u"
+	"$mainModSHIFT, J, movewindow, d"
 
-        "$mainMod, 1, workspace, 1"
-        "$mainMod, 2, workspace, 2"
-        "$mainMod, 3, workspace, 3"
-        "$mainMod, 4, workspace, 4"
-        "$mainMod, 5, workspace, 5"
-        "$mainMod, 6, workspace, 6"
-        "$mainMod, 7, workspace, 7"
-        "$mainMod, 8, workspace, 8"
-        "$mainMod, 9, workspace, 9"
-        "$mainMod, 0, workspace, 10"
+	"$mainMod, 1, workspace, 1"
+	"$mainMod, 2, workspace, 2"
+	"$mainMod, 3, workspace, 3"
+	"$mainMod, 4, workspace, 4"
+	"$mainMod, 5, workspace, 5"
+	"$mainMod, 6, workspace, 6"
+	"$mainMod, 7, workspace, 7"
+	"$mainMod, 8, workspace, 8"
+	"$mainMod, 9, workspace, 9"
+	"$mainMod, 0, workspace, 10"
 
-        "$mainMod SHIFT, 1, movetoworkspace, 1"
-        "$mainMod SHIFT, 2, movetoworkspace, 2"
-        "$mainMod SHIFT, 3, movetoworkspace, 3"
-        "$mainMod SHIFT, 4, movetoworkspace, 4"
-        "$mainMod SHIFT, 5, movetoworkspace, 5"
-        "$mainMod SHIFT, 6, movetoworkspace, 6"
-        "$mainMod SHIFT, 7, movetoworkspace, 7"
-        "$mainMod SHIFT, 8, movetoworkspace, 8"
-        "$mainMod SHIFT, 9, movetoworkspace, 9"
-        "$mainMod SHIFT, 0, movetoworkspace, 10"
+	"$mainMod SHIFT, 1, movetoworkspace, 1"
+	"$mainMod SHIFT, 2, movetoworkspace, 2"
+	"$mainMod SHIFT, 3, movetoworkspace, 3"
+	"$mainMod SHIFT, 4, movetoworkspace, 4"
+	"$mainMod SHIFT, 5, movetoworkspace, 5"
+	"$mainMod SHIFT, 6, movetoworkspace, 6"
+	"$mainMod SHIFT, 7, movetoworkspace, 7"
+	"$mainMod SHIFT, 8, movetoworkspace, 8"
+	"$mainMod SHIFT, 9, movetoworkspace, 9"
+	"$mainMod SHIFT, 0, movetoworkspace, 10"
       ];
 
       bindm = [
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
+	"$mainMod, mouse:272, movewindow"
+	"$mainMod, mouse:273, resizewindow"
       ];
 
       monitor = [
-        "DP-1, 1920x1080, 0x0, 1"
-        "DP-2, 1920x1080, 1920x-475, 1, transform,1"
+	"DP-1, 1920x1080, 0x0, 1"
+	"DP-2, 1920x1080, 1920x-475, 1, transform,1"
       ];
     };
   };
@@ -185,9 +188,9 @@
       modifier = "Mod4";
       terminal = "kitty";
       output = {
-        DP-2 = {
-          transform = "270";
-        };
+	DP-2 = {
+	  transform = "270";
+	};
       };
     };
   };

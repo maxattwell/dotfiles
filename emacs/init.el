@@ -22,6 +22,7 @@
 
 ;; Load modules
 (load "~/.config/emacs/evil.el")
+(load "~/.config/emacs/langs.el")
 
 (use-package seq
   :ensure t)
