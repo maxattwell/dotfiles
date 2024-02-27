@@ -1,4 +1,4 @@
-;; Configs for tree-sitter and languages modes
+;; Treesitter and language modes
 
 (use-package tree-sitter
   :ensure t)

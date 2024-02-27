@@ -1,4 +1,4 @@
-;; Configss relating to evil mode
+;; Evil config
 
 (use-package evil
   :ensure t

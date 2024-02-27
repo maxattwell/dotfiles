@@ -1,21 +1,20 @@
+;; Emacs config
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-;; Relative line numbers
-;;(global-display-line-numbers-mode 1)
-;;(display-line-numbers-mode)
 (setq display-line-numbers-type 'relative) 
 (global-display-line-numbers-mode)
 
-;; package.el
+(setq backup-directory-alist `(("." . "~/.saves")))
+
+;; Package management
 (require 'package)
 (add-to-list 'package-archives
 	    '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 (package-refresh-contents)
 
-;; Install and configure use-package
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 (require 'use-package)
@@ -24,36 +23,7 @@
 (load "~/.config/emacs/evil.el")
 (load "~/.config/emacs/langs.el")
 (load "~/.config/emacs/general.el")
-
-(use-package seq
-  :ensure t)
-
-(use-package magit
-  :ensure t
-  :config
- (define-key magit-mode-map (kbd "M-w") nil))
-
-(use-package general
-  :ensure t
-  :config
-
-  ;; Set <leader>
-  (general-create-definer my-leader-def
-    :prefix "SPC")
-
-  ;; <leader> shortcuts
-  (my-leader-def
-   :keymaps 'normal
-   ":" 'execute-extended-command)
-  (my-leader-def
-   :keymaps 'normal
-   "g" 'magit-status-here)
-  (my-leader-def
-   :keymaps 'normal
-   "w" 'evil-window-map)
-  (my-leader-def
-   :keymaps 'normal
-   "." 'find-file))
+(load "~/.config/emacs/magit.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

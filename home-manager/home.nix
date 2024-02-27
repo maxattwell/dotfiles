@@ -47,6 +47,7 @@ in {
       # '')
       pkgs.fastfetch
       pkgs.google-chrome
+      pkgs.mariadb
       pkgs.neovim
       pkgs.zsh
     ];
