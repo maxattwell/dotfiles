@@ -23,6 +23,7 @@
 ;; Load modules
 (load "~/.config/emacs/evil.el")
 (load "~/.config/emacs/langs.el")
+(load "~/.config/emacs/general.el")
 
 (use-package seq
   :ensure t)
@@ -59,7 +60,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(evil)))
+ '(package-selected-packages '(markdown-mode dockerfile-mode evil)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
