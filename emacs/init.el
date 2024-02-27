@@ -2,9 +2,14 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(tooltip-mode -1)
+(set-fringe-mode 0)
 
 (setq display-line-numbers-type 'relative) 
 (global-display-line-numbers-mode)
+
+(add-to-list 'default-frame-alist
+             '(font . "Mononoki Nerd Font Mono-12"))
 
 ;; Move custom vars set by emacs
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))
@@ -34,14 +39,17 @@
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 (require 'use-package)
+(setq use-package-always-ensure t)
 
 ;; Load modules
 (load "~/.config/emacs/evil.el")
 (load "~/.config/emacs/langs.el")
 (load "~/.config/emacs/general.el")
 (load "~/.config/emacs/magit.el")
+(load "~/.config/emacs/theme.el")
 
 (use-package which-key
   :ensure t
   :config
   (which-key-mode))
+
