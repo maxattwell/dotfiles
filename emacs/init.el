@@ -29,6 +29,9 @@
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
 
+;; Make ESC quit prompts
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
 ;; Package management
 (require 'package)
 (add-to-list 'package-archives
@@ -52,4 +55,18 @@
   :ensure t
   :config
   (which-key-mode))
+
+(use-package ivy
+  :ensure t
+  :bind (
+	 :map ivy-minibuffer-map
+	  ("C-j" . ivy-next-line)
+	  ("C-k" . ivy-previous-line)
+	 :map ivy-switch-buffer-map
+	  ("C-j" . ivy-next-line)
+	  ("C-k" . ivy-previous-line)))
+
+(ivy-mode)
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
 

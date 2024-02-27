@@ -30,5 +30,6 @@
              (delete-window)
              (balance-windows))
 
-   ;; find file
-   "." 'find-file))
+   ;; find 
+   "." 'find-file
+   "," 'counsel-switch-buffer))
