@@ -9,3 +9,7 @@
 (use-package nix-mode
   :ensure t
   :mode "\\.nix\\'")
+
+(use-package typescript-mode
+  :ensure t
+  :mode "\\.ts\\'")
