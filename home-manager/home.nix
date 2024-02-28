@@ -2,6 +2,7 @@
 
 let
   unstable = import <nixpkgs-unstable> {};
+  swayMod = config.wayland.windowManager.sway.config.modifier;
 in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -39,7 +40,7 @@ in {
       # # overrides. You can do that directly here, just don't forget the
       # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
       # # fonts?
-      (pkgs.nerdfonts.override { fonts = [ "Mononoki" ]; })
+      (pkgs.nerdfonts.override { fonts = [ "ProggyClean" "Overpass" "JetBrainsMono" ]; })
 
       # # You can also create simple shell scripts directly inside your
       # # configuration. For example, this adds a command 'my-hello' to your
@@ -86,9 +87,10 @@ in {
 
   home.pointerCursor = {
     gtk.enable = true;
+    #x11.enable = true;
     package = pkgs.bibata-cursors;
-    name = "Bibata-Moder-Classic";
-    size = 16;
+    name = "Bibata-Modern-Ice";
+    size = 32;
   };
 
   # Let Home Manager install and manage itself.
@@ -106,9 +108,8 @@ in {
   programs.kitty = {
     enable = true;
     font = {
-      name = "Terminess Nerd Font Mono";
-      package = pkgs.terminus-nerdfont;
-      size = 14;
+      name = "ProggyCleanSZ Nerd Font Mono";
+      size = 18;
     };
     extraConfig = "confirm_os_window_close 0";
   };
@@ -128,48 +129,50 @@ in {
 
       "$mainMod" = "SUPER";
       "$terminal" = "kitty";
+      "$emacs" = "emacs";
       "$browser" = "google-chrome-stable";
       "$suspend" = "systemctl suspend";
       "$logout" = "loginctl terminate-user $USER";
 
       bind = [
-	"$mainMod, RETURN, exec, $terminal"
-	"$mainMod SHIFT, RETURN, exec, $browser"
-	"$mainMod, Q, killactive"
-	"$mainMod, ESCAPE, exec, $suspend"
-	"$mainMod SHIFT, ESCAPE, exec, $logout"
+          "$mainMod, RETURN, exec, $terminal"
+          "$mainMod, E, exec, $emacs"
+          "$mainMod SHIFT, RETURN, exec, $browser"
+          "$mainMod, Q, killactive"
+          "$mainMod, ESCAPE, exec, $suspend"
+          "$mainMod SHIFT, ESCAPE, exec, $logout"
 
-	"$mainMod, H, movefocus, l"
-	"$mainMod, L, movefocus, r"
-	"$mainMod, K, movefocus, u"
-	"$mainMod, J, movefocus, d"
+          "$mainMod, H, movefocus, l"
+          "$mainMod, L, movefocus, r"
+          "$mainMod, K, movefocus, u"
+          "$mainMod, J, movefocus, d"
 
-	"$mainModSHIFT, H, movewindow, l"
-	"$mainModSHIFT, L, movewindow, r"
-	"$mainModSHIFT, K, movewindow, u"
-	"$mainModSHIFT, J, movewindow, d"
+          "$mainModSHIFT, H, movewindow, l"
+          "$mainModSHIFT, L, movewindow, r"
+          "$mainModSHIFT, K, movewindow, u"
+          "$mainModSHIFT, J, movewindow, d"
 
-	"$mainMod, 1, workspace, 1"
-	"$mainMod, 2, workspace, 2"
-	"$mainMod, 3, workspace, 3"
-	"$mainMod, 4, workspace, 4"
-	"$mainMod, 5, workspace, 5"
-	"$mainMod, 6, workspace, 6"
-	"$mainMod, 7, workspace, 7"
-	"$mainMod, 8, workspace, 8"
-	"$mainMod, 9, workspace, 9"
-	"$mainMod, 0, workspace, 10"
+          "$mainMod, 1, workspace, 1"
+          "$mainMod, 2, workspace, 2"
+          "$mainMod, 3, workspace, 3"
+          "$mainMod, 4, workspace, 4"
+          "$mainMod, 5, workspace, 5"
+          "$mainMod, 6, workspace, 6"
+          "$mainMod, 7, workspace, 7"
+          "$mainMod, 8, workspace, 8"
+          "$mainMod, 9, workspace, 9"
+          "$mainMod, 0, workspace, 10"
 
-	"$mainMod SHIFT, 1, movetoworkspace, 1"
-	"$mainMod SHIFT, 2, movetoworkspace, 2"
-	"$mainMod SHIFT, 3, movetoworkspace, 3"
-	"$mainMod SHIFT, 4, movetoworkspace, 4"
-	"$mainMod SHIFT, 5, movetoworkspace, 5"
-	"$mainMod SHIFT, 6, movetoworkspace, 6"
-	"$mainMod SHIFT, 7, movetoworkspace, 7"
-	"$mainMod SHIFT, 8, movetoworkspace, 8"
-	"$mainMod SHIFT, 9, movetoworkspace, 9"
-	"$mainMod SHIFT, 0, movetoworkspace, 10"
+          "$mainMod SHIFT, 1, movetoworkspace, 1"
+          "$mainMod SHIFT, 2, movetoworkspace, 2"
+          "$mainMod SHIFT, 3, movetoworkspace, 3"
+          "$mainMod SHIFT, 4, movetoworkspace, 4"
+          "$mainMod SHIFT, 5, movetoworkspace, 5"
+          "$mainMod SHIFT, 6, movetoworkspace, 6"
+          "$mainMod SHIFT, 7, movetoworkspace, 7"
+          "$mainMod SHIFT, 8, movetoworkspace, 8"
+          "$mainMod SHIFT, 9, movetoworkspace, 9"
+          "$mainMod SHIFT, 0, movetoworkspace, 10"
       ];
 
       bindm = [
@@ -191,10 +194,22 @@ in {
       modifier = "Mod4";
       terminal = "kitty";
       output = {
-	DP-2 = {
-	  transform = "270";
-	};
+        DP-1 = {
+          pos = "0 475";
+        };
+        DP-2 = {
+          transform = "270";
+          pos = "1920 0";
+        };
       };
     };
+      extraConfig = ''
+        bindsym ${swayMod}+q kill
+        bindsym ${swayMod}+Shift+Return exec google-chrome-stable
+        bindsym ${swayMod}+t exec emacs
+        default_border pixel 3
+        default_floating_border pixel 3
+        for_window [class="^.*"] border pixel 1
+      '';
   };
 }

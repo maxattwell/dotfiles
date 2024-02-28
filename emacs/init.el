@@ -6,17 +6,16 @@
 (set-fringe-mode 0)
 
 (setq display-line-numbers-type 'relative) 
-(global-display-line-numbers-mode)
-
-(add-to-list 'default-frame-alist
-             '(font . "Mononoki Nerd Font Mono-12"))
 
 ;; Move custom vars set by emacs
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))
 (load custom-file 'noerror 'nomessage)
 
 ;; Move save files
-(setq backup-directory-alist `(("." . "~/.saves")))
+(setq backup-directory-alist
+        '(("." . "~/.saves/"))) 
+(setq auto-save-file-name-transforms
+        `((".*" ,"~/.saves/" t)))
 
 ;; Minibuffer history
 (setq history-length 25)
@@ -64,9 +63,19 @@
 	  ("C-k" . ivy-previous-line)
 	 :map ivy-switch-buffer-map
 	  ("C-j" . ivy-next-line)
-	  ("C-k" . ivy-previous-line)))
-
+	  ("C-k" . ivy-previous-line))
+  :config
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t))
 (ivy-mode)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
 
+(use-package ivy-posframe
+  :ensure t
+  :custom-face
+  (ivy-posframe-border ((t (:background "#98971a"))))
+  :config
+  (setq ivy-posframe-border-width 3)
+  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display))))
+(ivy-posframe-mode 1)
+
+(doom-color 'modeline-bg)
