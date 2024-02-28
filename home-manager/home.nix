@@ -52,6 +52,8 @@ in {
       pkgs.google-chrome
       pkgs.mariadb
       pkgs.neovim
+      pkgs.nodejs_20
+      pkgs.typescript
       pkgs.zsh
     ];
 

@@ -32,4 +32,5 @@
 
    ;; find 
    "." 'find-file
+   "SPC" 'project-find-file
    "," 'counsel-switch-buffer))
