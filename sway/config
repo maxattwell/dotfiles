@@ -23,10 +23,14 @@ set $emacs emacsclient -nc
 set $browser google-chrome-stable
 set $suspend systemctl suspend
 
+# Theme
+set $setlight /home/max/dotfiles/bin/set-theme.sh light; reload
+set $setdark /home/max/dotfiles/bin/set-theme.sh dark; reload
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/max/dotfiles/sway/keys-l.png fill
+output * bg /home/max/dotfiles/sway/current-bg.png fill
 #
 # Example configuration:
 #
@@ -101,6 +105,10 @@ output DP-2 transform 270
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
     bindsym $mod+Shift+Escape exec swaymsg exit
+
+    # Change Theme
+    bindsym $mod+Shift+f1 exec $setlight
+    bindsym $mod+Shift+f2 exec $setdark
 #
 # Moving around:
 #

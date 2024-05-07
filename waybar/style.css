@@ -2,11 +2,11 @@
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Overpass Nerd Font, Roboto, Helvetica, Arial, sans-serif;
     font-size: 18px;
-    color: #ebdbb2;
+    color: #3c3836;
 }
 
 window#waybar {
-    background-color: #282828;
+    background-color: #fbf1c7;
     color: #282828;
     transition-property: background-color;
     transition-duration: .5s;
@@ -50,14 +50,10 @@ button:hover {
 
 #workspaces button {
     padding: 0 0.5em;
-    background-color: #3c3836;
+    background-color: #ebdbb2;
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.24);
     margin: 3px;
-}
-
-#workspaces button * {
-    color: #a89984;
 }
 
 #workspaces button  small {
@@ -68,16 +64,12 @@ button:hover {
     background: rgba(0, 0, 0, 0.2);
 }
 
-#workspaces button.visible {
-    background-color: #928374;
+#workspaces button.active {
+    background-color: #282828;
 }
 
-#workspaces button.focused {
-    background-color: #ebdbb2;
-}
-
-#workspaces button.focused * {
-    color: #3c3836;
+#workspaces button.active * {
+    color: #fbf1c7;
 }
 
 #workspaces button.urgent {

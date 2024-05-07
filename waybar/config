@@ -19,7 +19,7 @@
     "custom/georgeplayer": {
         "format": "󰲿",
         "return-type": "json",
-        "on-click": "~/bin/play-georgefm.sh",
+        "on-click": "/home/max/dotfiles/bin/play-georgefm.sh",
         "tooltip": false
     },
     "hyprland/workspaces": {
