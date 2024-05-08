@@ -56,6 +56,10 @@ button:hover {
     margin: 3px;
 }
 
+#workspaces button * {
+    color: #a89984;
+}
+
 #workspaces button  small {
     background-color: #000000;
 }
@@ -64,12 +68,16 @@ button:hover {
     background: rgba(0, 0, 0, 0.2);
 }
 
-#workspaces button.active {
-    background-color: #282828;
+#workspaces button.visible {
+    background-color: #928374;
 }
 
-#workspaces button.active * {
-    color: #fbf1c7;
+#workspaces button.focused {
+    background-color: #3c3836;
+}
+
+#workspaces button.focused * {
+    color: #a89984;
 }
 
 #workspaces button.urgent {
