@@ -126,3 +126,9 @@ exec --no-startup-id feh --bg-fill /home/max/dotfiles/backgrounds/keys-l.png
 
 # Redshift
 exec --no-startup-id redshift-gtk -l -43.53:172.64 -t 6500:3500
+
+# Polybar
+exec --no-startup-id polybar
+
+# Picom
+exec --no-startup-id picom
