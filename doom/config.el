@@ -185,3 +185,8 @@
   (setq circadian-themes '((:sunrise . doom-gruvbox-light)
                            (:sunset  . doom-gruvbox)))
   (circadian-setup))
+
+(setq treesit-language-source-alist
+      '((javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
+        (go "https://github.com/tree-sitter/tree-sitter-go")
+        (gomod "https://github.com/camdencheek/tree-sitter-go-mod")))

@@ -57,3 +57,5 @@
 (package! nvm)
 
 ;; (package! vue-mode)
+
+(package! templ-ts-mode)
