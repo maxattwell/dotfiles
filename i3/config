@@ -1,0 +1,134 @@
+# Max Attwell i3 config
+
+###
+### Variables
+###
+
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Launchers
+set $term kitty
+set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $emacs emacsclient -nc
+set $browser google-chrome-stable
+set $suspend systemctl suspend
+
+###
+### Key bindings
+###
+    # Kill window
+    bindsym $mod+q kill
+
+    # Launcher shortcuts
+    bindsym $mod+Return exec $term
+    bindsym $mod+d exec $menu
+    bindsym $mod+e exec $emacs
+    bindsym $mod+Shift+Return exec $browser
+
+    # i3-session managment
+    bindsym $mod+Escape exec $suspend
+    bindsym $mod+Shift+c exec i3-msg restart
+    bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+    bindsym $mod+Shift+Escape exec i3-msg exit
+
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+
+#
+# Workspaces:
+#
+    # Switch to workspace
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace number 1; workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2; workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3; workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4; workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5; workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6; workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7; workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8; workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9; workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10; workspace number 10
+
+#
+# Layout stuff:
+#
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+
+#
+# Resizing containers:
+#
+mode "resize" {
+    bindsym $left resize shrink width 60px
+    bindsym $down resize grow height 60px
+    bindsym $up resize shrink height 60px
+    bindsym $right resize grow width 60px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+###
+### Setup
+###
+
+# Window borders
+smart_borders on
+default_border pixel 3
+# class                 border
+client.focused          #ffffff #ffffff #ffffff
+
+# Monitor layout
+# exec --no-startup-id xrandr --output DP-4 --pos 0x475
+exec --no-startup-id xrandr --output DP-2 --rotate left --pos 1920x-475
+
+# Set background
+exec --no-startup-id feh --bg-fill /home/max/dotfiles/backgrounds/keys-l.png
+exec --no-startup-id feh --bg-fill /home/max/dotfiles/backgrounds/keys-l.png
+
+# Redshift
+exec --no-startup-id redshift-gtk -l -43.53:172.64 -t 6500:3500
+
+# Polybar
+exec --no-startup-id polybar
+
+# Picom
+exec --no-startup-id picom

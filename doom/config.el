@@ -131,29 +131,29 @@
  'org-babel-load-languages
  '((sql . t)))
 
-;; Org mode theme customization
-(defface org-custom-face
-  '((t (:height 1.1 :family "FiraCode NF")))
-  "Custom face for Org Mode buffers"
-  :group 'org-faces)
+;; ;; Org mode theme customization
+;; (defface org-custom-face
+;;   '((t (:height 1.1 :family "Overpass Nerd Font")))
+;;   "Custom face for Org Mode buffers"
+;;   :group 'org-faces)
 
-(add-hook 'org-mode-hook
-          (lambda ()
-            (setq-local buffer-face-mode-face 'org-custom-face)
-            (buffer-face-mode)))
+;; (add-hook 'org-mode-hook
+;;           (lambda ()
+;;             (setq-local buffer-face-mode-face 'org-custom-face)
+;;             (buffer-face-mode)))
 
-(custom-set-faces
- '(org-level-1 ((t (:inherit outline-1 :height 1.6 :weight bold :family "FiraCode NF"))))
- '(org-level-2 ((t (:inherit outline-2 :height 1.5 :weight bold :family "FiraCode NF"))))
- '(org-level-3 ((t (:inherit outline-3 :height 1.4 :weight bold :family "FiraCode NF"))))
- '(org-level-4 ((t (:inherit outline-4 :height 1.3 :weight bold :family "FiraCode NF"))))
- '(org-level-5 ((t (:inherit outline-5 :height 1.2 :weight bold :family "FiraCode NF"))))
- '(org-level-6 ((t (:inherit outline-6 :height 1.1 :weight bold :family "FiraCode NF"))))
- '(org-default ((t (:height 1.0 :family "FiraCode NF"))))
- '(org-block ((t (:height 1.0 :family "Mononoki Nerd Font Mono"))))
- '(org-table ((t (:height 1.0 :family "Mononoki Nerd Font Mono"))))
- ;; Add more levels as needed
- )
+;; (custom-set-faces
+;;  '(org-level-1 ((t (:inherit outline-1 :height 1.6 :weight bold :family "Overpass Nerd Font"))))
+;;  '(org-level-2 ((t (:inherit outline-2 :height 1.5 :weight bold :family "Overpass Nerd Font"))))
+;;  '(org-level-3 ((t (:inherit outline-3 :height 1.4 :weight bold :family "Overpass Nerd Font"))))
+;;  '(org-level-4 ((t (:inherit outline-4 :height 1.3 :weight bold :family "Overpass Nerd Font"))))
+;;  '(org-level-5 ((t (:inherit outline-5 :height 1.2 :weight bold :family "Overpass Nerd Font"))))
+;;  '(org-level-6 ((t (:inherit outline-6 :height 1.1 :weight bold :family "Overpass Nerd Font"))))
+;;  '(org-default ((t (:height 1.0 :family "Overpass Nerd Font"))))
+;;  '(org-block ((t (:height 1.0 :family "Mononoki Nerd Font Mono"))))
+;;  '(org-table ((t (:height 1.0 :family "Mononoki Nerd Font Mono"))))
+;;  ;; Add more levels as needed
+;; )
 
 ;; Splash image
 (setq fancy-splash-image "/Users/max/.config/doom/splash/doomEmacsGruvbox.svg")
