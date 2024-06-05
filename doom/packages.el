@@ -58,4 +58,6 @@
 
 ;; (package! vue-mode)
 
+(package! templ-ts-mode)
+
 (package! ellama)
