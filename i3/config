@@ -112,7 +112,7 @@ bindsym $mod+r mode "resize"
 
 # Window borders
 smart_borders on
-default_border pixel 3
+for_window [class="."] border pixel 3
 # class                 border
 client.focused          #ffffff #ffffff #ffffff
 
@@ -132,4 +132,5 @@ exec --no-startup-id polybar left
 exec --no-startup-id polybar right
 
 # Picom
-exec --no-startup-id picom
+# exec --no-startup-id picom
+exec pidof picom 1> /dev/null || picom --config .config/picom/picom.conf &
