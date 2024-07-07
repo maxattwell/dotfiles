@@ -264,4 +264,5 @@ exec swaync
 bindsym $mod+Shift+n exec swaync-client -t -sw
 
 # Screenshot
-bindsym $mod+shift+s exec slurp | grim -g - /home/max/Downloads/screenshot_$(date +'%Y%m%d%H%M%S').png
+bindsym $mod+shift+s exec slurp | grim -g - "/home/$USER/Pictures/Screenshot $(date +'%a %d %b %Y %T').png"
+ # bindsym $mod+shift+s exec slurp | grim -g - /home/$USER/Pictures/screenshot_$(date +'%Y%m%d%H%M%S').png
