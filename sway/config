@@ -18,7 +18,8 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu /home/max/dotfiles/bin/dmenu_chrome_apps.sh
+set $settings gnome-control-center
 set $emacs emacsclient -nc
 set $browser google-chrome-stable
 set $suspend systemctl suspend
@@ -85,6 +86,9 @@ output DP-2 transform 270
 
     # Start emacs
     bindsym $mod+e exec $emacs
+
+    # Open gnome control center
+    bindsym $mod+c exec $settings
 
     # Start chrome
     bindsym $mod+Shift+Return exec $browser
