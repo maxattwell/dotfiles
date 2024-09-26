@@ -6,7 +6,7 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": ["sway/workspaces"],
-    "modules-center": ["custom/georgeplayer"],
+    "modules-center": ["custom/radioplayer"],
     "modules-right": ["clock"],
     // Modules configuration
      "sway/workspaces": {
@@ -16,10 +16,10 @@
          // waybar v0.9.24 doesnt support windows in sway/workspaces
          "format": "{name}",
      },
-    "custom/georgeplayer": {
+    "custom/radioplayer": {
         "format": "󰲿",
         "return-type": "json",
-        "on-click": "/home/max/dotfiles/bin/play-georgefm.sh",
+        "on-click": "/home/max/dotfiles/bin/play-radio.sh",
         "tooltip": false
     },
     "hyprland/workspaces": {
