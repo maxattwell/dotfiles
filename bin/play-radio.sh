@@ -5,6 +5,8 @@ stations=(
     "George FM | https://digitalstreams.mediaworks.nz/george_net/playlist.m3u8"
     "Loca FM | https://s3.we4stream.com:2020/stream/locafm"
     "HOUSE NATION UK | https://streaming.radio.co/s06bd9d805/listen"
+    "IBIZA GLOBAL CLASSICS | https://control.streaming-pro.com:8000/ibizaglobalclassics.mp3"
+    "IBIZA GLOGAL RADIO | https://listenssl.ibizaglobalradio.com:8024/ibizaglobalradio.mp3"
     "Stop all stations | stop"
 )
 
