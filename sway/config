@@ -21,7 +21,7 @@ set $term kitty
 set $menu /home/max/dotfiles/bin/dmenu_chrome_apps.sh
 set $settings gnome-control-center
 set $emacs emacsclient -nc
-set $browser google-chrome-stable
+set $browser google-chrome
 set $suspend systemctl suspend
 
 # Theme
@@ -37,10 +37,13 @@ output * bg /home/max/dotfiles/sway/current-bg.png fill
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 
-output DP-1 resolution 1920x1080 position 1920,475
-output DP-2 resolution 1920x1080 position 3840,0
-output DP-2 transform 270
+output Unknown-1 disable
+output DP-4 resolution 1920x1080 position 1920,475
+output DP-3 resolution 1920x1080 position 3840,0
+output DP-3 transform 270
 
+workspace 1 output DP-4
+workspace 2 output DP-3
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
