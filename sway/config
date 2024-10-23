@@ -18,7 +18,8 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu /home/max/dotfiles/bin/dmenu_chrome_apps.sh
+# set $menu /home/max/dotfiles/bin/dmenu_chrome_apps.sh
+set $menu wofi --show drun --style=/home/max/dotfiles/wofi/wofi_styles.css
 set $settings gnome-control-center
 set $emacs emacsclient -nc
 set $browser google-chrome
@@ -85,7 +86,7 @@ workspace 2 output DP-3
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+space exec $menu
 
     # Start emacs
     bindsym $mod+e exec $emacs
@@ -188,7 +189,7 @@ workspace 2 output DP-3
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    bindsym $mod+d focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
