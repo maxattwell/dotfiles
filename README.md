@@ -44,8 +44,6 @@ sudo dnf install emacs neovim sway kitty picom waybar vlc blueman zsh mako wofi 
 
 ### Repositories
 - **[Doom](https://github.com/doomemacs/doomemacs?tab=readme-ov-file#install)**
-- **[Zap](https://www.zapzsh.com/)** 
-- **[Starship](https://starship.rs/#install-latest-version)** 
 
 ### Fonts
 1. Download and extract from nerd fonts
@@ -61,6 +59,14 @@ done
 for dir in doom picom sway waybar kitty mako; do
   ln -s ~/dotfiles/$dir ~/.config/$dir
 done
+```
+
+## Zsh setup
+1. Change shell to zsh
+2. Add to top of `.zshrc`
+
+``` sh
+source $HOME/dotfiles/zsh/max.zshrc
 ```
 
 ## Run doom sync
