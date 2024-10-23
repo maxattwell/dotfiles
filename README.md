@@ -39,7 +39,7 @@ git clone git@github.com:maxattwell/dotfiles.git
 
 ### Packages (fedora 23/10/24)
 ``` sh
-sudo dnf install emacs neovim sway kitty picom waybar vlc blueman zsh mako wofi google-chrome -y
+sudo dnf install emacs neovim sway kitty picom waybar vlc blueman zsh mako wofi google-chrome fzf -y
 ```
 
 ### Repositories
