@@ -58,11 +58,9 @@ mv ~/Downloads/Overpass ~/.local/share/fonts
 
 ## Link configuration files
 ``` sh
-ln -s ~/dotfiles/doom .config/
-ln -s ~/dotfiles/picom .config/
-ln -s ~/dotfiles/sway .config/
-ln -s ~/dotfiles/waybar .config/
-ln -s ~/dotfiles/kitty .config/
+for dir in doom picom sway waybar kitty; do
+  ln -s ~/dotfiles/$dir ~/.config/$dir
+done
 ```
 
 ## Run doom sync
