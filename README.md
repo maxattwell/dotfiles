@@ -43,9 +43,9 @@ sudo dnf install emacs neovim sway kitty picom waybar vlc blueman zsh
 ```
 
 ### Repositories
-**Doom emacs:** (link here)[https://github.com/doomemacs/doomemacs?tab=readme-ov-file#install]
-**Zap:** (link here)[https://www.zapzsh.com/]
-**Starship shell:** (link here)[https://starship.rs/#install-latest-version]
+- **Doom emacs:** (link here)[https://github.com/doomemacs/doomemacs?tab=readme-ov-file#install]
+- **Zap:** (link here)[https://www.zapzsh.com/]
+- **Starship shell:** (link here)[https://starship.rs/#install-latest-version]
 
 ### Fonts
 1. Download and extract from nerd fonts
@@ -65,4 +65,9 @@ ln -s ~/dotfiles/waybar .config/waybar
 ln -s ~/dotfiles/kitty .config/kitty
 ```
 
-**Run doom sync**
+## Run doom sync
+
+``` sh
+.config/emacs/bin/doom sync
+```
+
