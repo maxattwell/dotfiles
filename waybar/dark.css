@@ -72,6 +72,14 @@ button:hover {
     background-color: #928374;
 }
 
+#workspaces button.active {
+    background-color: #ebdbb2;
+}
+
+#workspaces button.active * {
+    color: #3c3836;
+}
+
 #workspaces button.focused {
     background-color: #ebdbb2;
 }
