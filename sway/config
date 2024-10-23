@@ -234,20 +234,6 @@ bindsym $mod+r mode "resize"
 #
 exec gammastep
 exec waybar
-# Read `man 5 sway-bar` for more information about this section.
-# bar {
-#     position bottom
-
-#     # When the status_command prints a new line to stdout, swaybar updates.
-#     # The default just shows the current date and time.
-#     status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
-#     colors {
-#         statusline #ffffff
-#         background #323232
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#     }
-# }
 
 #
 # Window borders
@@ -273,3 +259,10 @@ bindsym $mod+Shift+n exec swaync-client -t -sw
 # Screenshot
 bindsym $mod+shift+s exec slurp | grim -g - "/home/$USER/Pictures/Screenshot $(date +'%a %d %b %Y %T').png"
  # bindsym $mod+shift+s exec slurp | grim -g - /home/$USER/Pictures/screenshot_$(date +'%Y%m%d%H%M%S').png
+
+# Floating windows
+
+# blueman
+for_window [app_id="blueman-manager"] floating enable
+# google-chrome pop-up
+for_window [class="Google-chrome" window_role="pop-up"] floating enable
