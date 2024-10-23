@@ -39,7 +39,7 @@
         "format": "󰂯",
         "format-disabled": "󰂲",
         "format-connected": "{num_connections} ",
-        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        // "format-connected-battery": " {device_alias} {device_battery_percentage}%",
         "on-click": "blueman-manager",
     },
     "keyboard-state": {
