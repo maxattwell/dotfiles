@@ -51,9 +51,9 @@ sudo dnf install emacs neovim sway kitty picom waybar vlc blueman zsh
 1. Download and extract from nerd fonts
 2. Install
 ``` sh
-mv ~/Downloads/JetBrainsMono ~/.local/share/fonts
-mv ~/Downloads/Mononoki ~/.local/share/fonts
-mv ~/Downloads/Overpass ~/.local/share/fonts
+for dir in JetBrainsMono Mononoki Overpass; do
+  mv ~/Downloads/$dir ~/.local/share/fonts
+done
 ```
 
 ## Link configuration files
