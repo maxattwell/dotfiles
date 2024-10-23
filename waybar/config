@@ -3,10 +3,10 @@
      "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 20, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": ["sway/workspaces"],
-    "modules-center": ["custom/radioplayer"],
+    "modules-center": ["bluetooth" ,"custom/radioplayer"],
     "modules-right": ["clock"],
     // Modules configuration
      "sway/workspaces": {
@@ -17,7 +17,7 @@
          "format": "{name}",
      },
     "custom/radioplayer": {
-        "format": "󰲿",
+        "format": "",
         "return-type": "json",
         "on-click": "/home/max/dotfiles/bin/play-radio.sh",
         "tooltip": false
@@ -34,6 +34,13 @@
             "WhatsApp": " ",
             "class<chrome> title<*.github.*>": " ",
         }
+    },
+    "bluetooth": {
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "format-connected": "{num_connections} ",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "on-click": "blueman-manager",
     },
     "keyboard-state": {
         "numlock": true,
