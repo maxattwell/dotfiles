@@ -40,8 +40,7 @@ bindkey '^k' history-search-backward
 bindkey '^j' history-search-forward
 bindkey '^h' backward-word
 bindkey '^l' forward-word
-# bindkey '^?' backward-kill-word
-bindkey '^[w' kill-region
+bindkey '\e[3;5~' backward-kill-word
 
 # History
 HISTSIZE=5000
