@@ -56,7 +56,7 @@ done
 
 ## Link configuration files
 ``` sh
-for dir in doom picom sway waybar kitty mako; do
+for dir in doom picom sway hypr waybar kitty mako; do
   ln -s ~/dotfiles/$dir ~/.config/$dir
 done
 ```
