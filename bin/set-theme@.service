@@ -1,0 +1,6 @@
+[Unit]
+Description=Set theme to %i
+
+[Service]
+Type=oneshot
+ExecStart=/home/max/dotfiles/bin/set-theme.sh %i

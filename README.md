@@ -61,6 +61,20 @@ for dir in doom picom sway hypr waybar kitty mako; do
 done
 ```
 
+## Link theme switcher services and enable/start
+
+``` sh
+ln -s ~/dotfiles/bin/set-theme@.service .config/systemd/user
+ln -s ~/dotfiles/bin/set-theme@light.timer .config/systemd/user
+ln -s ~/dotfiles/bin/set-theme@dark.timer .config/systemd/user
+
+systemctl --user enable set-theme@light.timer
+systemctl --user start set-theme@light.timer
+
+systemctl --user enable set-theme@dark.timer
+systemctl --user start set-theme@dark.timer
+```
+
 ## Zsh setup
 1. Change shell to zsh
 2. Add to top of `.zshrc`
