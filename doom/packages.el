@@ -52,8 +52,6 @@
 
 (package! evil-snipe :disable t)
 
-(package! circadian)
-
 (package! nvm)
 
 ;; (package! vue-mode)

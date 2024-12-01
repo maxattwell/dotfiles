@@ -176,16 +176,6 @@
 (after! persp-mode
   (setq persp-emacsclient-init-frame-behaviour-override "main"))
 
-;; Circadian theme
-(use-package! circadian
-  :ensure t
-  :config
-  (setq calendar-latitude -43.5)
-  (setq calendar-longitude 172.6)
-  (setq circadian-themes '((:sunrise . doom-gruvbox-light)
-                           (:sunset  . doom-gruvbox)))
-  (circadian-setup))
-
 (setq treesit-language-source-alist
       '((javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
         (go "https://github.com/tree-sitter/tree-sitter-go")
