@@ -58,4 +58,3 @@
 
 (package! templ-ts-mode)
 
-(package! ellama)
