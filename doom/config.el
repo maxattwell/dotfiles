@@ -181,21 +181,21 @@
         (go "https://github.com/tree-sitter/tree-sitter-go")
         (gomod "https://github.com/camdencheek/tree-sitter-go-mod")))
 
-;; Sync system clipboard with Emacs kill ring
-(setq select-enable-clipboard t
-      select-enable-primary t)
+;; ;; Sync system clipboard with Emacs kill ring
+;; (setq select-enable-clipboard t
+;;       select-enable-primary t)
 
-;; Use system clipboard for pasting by default
-(setq x-select-enable-clipboard-manager nil)
+;; ;; Use system clipboard for pasting by default
+;; (setq x-select-enable-clipboard-manager nil)
 
-;; Set up clipboard integration for Wayland
-(when (eq window-system nil) ; running under Wayland (no X11)
-  (setq interprogram-paste-function
-        (lambda ()
-          (shell-command-to-string "wl-paste --no-newline")))
-  (setq interprogram-cut-function
-        (lambda (text &optional _rest)
-          (let ((process-connection-type nil))
-            (let ((proc (start-process "wl-copy" "*Messages*" "wl-copy")))
-              (process-send-string proc text)
-              (process-send-eof proc))))))
+;; ;; Set up clipboard integration for Wayland
+;; (when (eq window-system nil) ; running under Wayland (no X11)
+;;   (setq interprogram-paste-function
+;;         (lambda ()
+;;           (shell-command-to-string "wl-paste --no-newline")))
+;;   (setq interprogram-cut-function
+;;         (lambda (text &optional _rest)
+;;           (let ((process-connection-type nil))
+;;             (let ((proc (start-process "wl-copy" "*Messages*" "wl-copy")))
+;;               (process-send-string proc text)
+;;               (process-send-eof proc))))))
