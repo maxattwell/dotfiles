@@ -199,3 +199,43 @@
 ;;             (let ((proc (start-process "wl-copy" "*Messages*" "wl-copy")))
 ;;               (process-send-string proc text)
 ;;               (process-send-eof proc))))))
+
+;; accept completion from copilot and fallback to company
+
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word)))
+
+(use-package! gptel)
+
+(defun get-gemini-api-key ()
+  "Retrieve the Gemini API key from the pass."
+  (string-trim (shell-command-to-string "pass show Google/gemini-api-key")))
+
+(setq
+ gptel-model 'gemini-2.0-flash
+ gptel-backend (gptel-make-gemini "Gemini"
+                 :key (get-gemini-api-key)
+                 :stream t))
+
+(map! :leader
+      (:prefix ("e" . "GPTel")
+       :desc "Add region or buffer to GPTel's context" "a" #'gptel-add
+       :desc "Send all text up to (point) or the selection." "<RET>" #'gptel-send
+       :desc "Send buffer to GPTel" "f" #'gptel-add-file
+       :desc "Open GPTel" "e" #'gptel
+       :desc "Remove all GPTel's context" "d" #'gptel-context-remove-all
+       :desc "Rewrite, refactor or change the selected region" "r" #'gptel-rewrite))
+
+(add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
+(add-hook 'gptel-post-response-functions 'gptel-end-of-response)
+
+(setq gptel-default-mode 'org-mode)
+
+
+(setf (alist-get 'org-mode gptel-prompt-prefix-alist) "@user\n")
+(setf (alist-get 'org-mode gptel-response-prefix-alist) "@assistant\n")
